@@ -35,6 +35,7 @@ $(document).ready(function(){
         
         success:function(data){
             $("#weatherforecast").html(data.weather[0].description);
+            $("#city").html(data.name);
         }
     });
        }
