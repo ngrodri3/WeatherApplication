@@ -36,7 +36,16 @@ $(document).ready(function(){
         success:function(data){
             $("#weatherforecast").html(data.weather[0].description);
             $("#city").html(data.name);
+            var weatherStatus = data.weather[0].main;
+            console.log(weatherStatus)
+            changeBG(weatherStatus);
         }
-    });
+    }); 
        }
+       function changeBG(weather){
+           switch(weather){
+                   case("Clouds"):
+                            $("body").css("background-image","url(https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg)");
+       }
+   }
 });
