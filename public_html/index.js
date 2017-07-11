@@ -37,7 +37,7 @@ $(document).ready(function(){
             $("#weatherforecast").html(data.weather[0].description);
             $("#city").html(data.name);
             var weatherStatus = data.weather[0].main;
-            console.log(weatherStatus)
+            console.log(weatherStatus);
             changeBG(weatherStatus);
         }
     }); 
@@ -46,6 +46,11 @@ $(document).ready(function(){
            switch(weather){
                    case("Clouds"):
                             $("body").css("background-image","url(https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg)");
+                            break;
+                   case("Clear"):
+                              $("body").css("background-image","url(http://www.publicdomainpictures.net/pictures/80000/velka/blue-sky-background-wallpaper.jpg)");
+                              break;
        }
    }
+
 });
