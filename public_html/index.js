@@ -37,6 +37,8 @@ $(document).ready(function(){
             $("#weatherforecast").html(data.weather[0].description);
             $("#city").html(data.name);
             var weatherStatus = data.weather[0].main;
+            var kelvin = data.main.temp;
+            toFar(kelvin);
             console.log(weatherStatus);
             changeBG(weatherStatus);
         }
@@ -51,6 +53,16 @@ $(document).ready(function(){
                               $("body").css("background-image","url(http://www.publicdomainpictures.net/pictures/80000/velka/blue-sky-background-wallpaper.jpg)");
                               break;
        }
+   }
+   function toFar(kelvin){
+       var farhenheit = (9/5)*(kelvin-273)+32;
+       $("#temp").html(farhenheit.toFixed(2));
+       $("#tempType").html("F");
+   }
+   function toCelcius(kelvin){
+       var celcius = kelvin - 273.15;
+       $("#temp").html(celcius.toFixed(2));
+       $("#tempType").html("C");
    }
 
 });
