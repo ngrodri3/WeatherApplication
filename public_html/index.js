@@ -1,11 +1,21 @@
+    var weatherInfo = new function(){
+        this.main;
+        this.kelvin;
+         this.status;
+         this.type;
+         this.far;
+         this.cel;
+     };
+
 $(document).ready(function(){
     
     getLocation();
     var lat;
     var long;
+    
 
     
-    
+
    function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -16,12 +26,9 @@ $(document).ready(function(){
         }
 
         function showPosition(position) {
-        $("#weather").html("Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude);
+
         long = (position.coords.longitude);
-        console.log(long);
         lat = (position.coords.latitude);
-        console.log(lat);
         getWeather(long, lat);
 
     }
@@ -35,12 +42,16 @@ $(document).ready(function(){
         
         success:function(data){
             $("#weatherforecast").html(data.weather[0].description);
+            weatherInfo.status = data.weather[0].main;
             $("#city").html(data.name);
-            var weatherStatus = data.weather[0].main;
-            var kelvin = data.main.temp;
-            toFar(kelvin);
-            console.log(weatherStatus);
-            changeBG(weatherStatus);
+
+           weatherInfo.kelvin = data.main.temp;
+           weatherInfo.cel = weatherInfo.kelvin - 273.15;
+           weatherInfo.far = (weatherInfo.cel *1.8) + 32;
+           console.log(weatherInfo.far);
+            $(".far").html(toFar(weatherInfo.far));
+
+            changeBG(weatherInfo.status);
         }
     }); 
        }
@@ -50,19 +61,39 @@ $(document).ready(function(){
                             $("body").css("background-image","url(https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg)");
                             break;
                    case("Clear"):
-                              $("body").css("background-image","url(http://www.publicdomainpictures.net/pictures/80000/velka/blue-sky-background-wallpaper.jpg)");
+                              $("body").css("background-image","url(http://68.media.tumblr.com/b4c26c6a82aafe7db9601801c5a571f9/tumblr_n8gyqdqA4E1st5lhmo1_1280.jpg)");
+                              $(".main-area").css("background-color", "#ffccb3")
                               break;
        }
    }
-   function toFar(kelvin){
-       var farhenheit = (9/5)*(kelvin-273)+32;
-       $("#temp").html(farhenheit.toFixed(2));
-       $("#tempType").html("F");
+   function toFar(far){
+       $("#temp").html(far.toFixed(2));
+       weatherInfo.type = "F";
+       $("#tempToggle").css("value", "To Celsuis");
    }
-   function toCelcius(kelvin){
-       var celcius = kelvin - 273.15;
-       $("#temp").html(celcius.toFixed(2));
-       $("#tempType").html("C");
+   function toCelcius(cel){
+       $("#temp").html(cel.toFixed(2));
+       weatherInfo.type = "C";
+       $("#fOrC").html(weatherInfo.type);
    }
+   
+   $("#tempToggle").click(function(){
+       
+       if(weatherInfo.type == "C"){
+           var far = (weatherInfo.far).toFixed(2);
+       $("#temp").html(far);
+       weatherInfo.type = "F";
+       $("#tempType").html(weatherInfo.type);
+
+       }
+       else if(weatherInfo.type == "F"){
+
+        var cel = (weatherInfo.cel).toFixed(2);
+        $("#temp").html(cel);
+       weatherInfo.type = "C";
+       $("#tempType").html(weatherInfo.type);
+
+       }
+   });
 
 });

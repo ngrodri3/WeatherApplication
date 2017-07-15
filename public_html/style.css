@@ -1,12 +1,12 @@
 
 body{
     background-image:url("http://www.powerpointhintergrund.com/uploads/2017/05/blue-sky-abstract-background-for-desktop-hd-wallpapers-34.jpeg");
-    background-size: 100%;
+    background-size: cover;
     background-position: top;
     color:white;
     font-family: Roboto;
     background-repeat: no-repeat;
-    background-attachment: fixedl
+    background-attachment: fixed;
 
 }
 .top-title{
@@ -25,4 +25,20 @@ body{
 }
 .new-city{
     color:gray;
+}
+.city-title{
+    font-family: Lobster, Verdana;
+    text-shadow: 2px 2px black;
+    
+}
+.main-area{
+    background-color: #0099cc;
+    border-type: solid;
+    border-width: 0px;
+    border-radius: 6%;
+    font-family: Oswald, Arial;
+    font-size: 25px;
+    width: 75%;
+    margin: auto;
+    padding-bottom: 10px;
 }
