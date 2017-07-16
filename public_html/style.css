@@ -33,12 +33,31 @@ body{
 }
 .main-area{
     background-color: #0099cc;
-    border-type: solid;
+    border-style: solid;
     border-width: 0px;
-    border-radius: 6%;
+    border-radius: 35%;
     font-family: Oswald, Arial;
     font-size: 25px;
     width: 75%;
     margin: auto;
     padding-bottom: 10px;
+    padding-top:10px;
+}
+.popular{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    width:50%;
+    padding-top:20px;
+    padding-bottm: 20px;
+
+}
+.outer{
+      display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pop-button{
+        margin-left: 10px;
+    margin-right: 10px;
 }

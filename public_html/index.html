@@ -3,12 +3,13 @@
     <head>
 
   <meta charset="UTF-8">
-  <title>Practice</title>
+  <title>How's The Weather</title>
   
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <link href="https://fonts.googleapis.com/css?family=Anton|Bellefair|Poppins|Roboto|Oswald|Lobster" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="style.css">
 
  
@@ -21,11 +22,19 @@
             <div class ="main-area">
 
             <p id ="weather"></p>
-            <p>Looks like you have <span id = "weatherforecast"></span> in your future.</p>
-            <p>The temperature is currently <span id ="temp" class = "far"></span>&#176<span id = "tempType" class = "f">F</span></p>
+            <p>Looks like you have <span id = "weatherforecast"></span> outside.</p>
+            <p><i class="fa fa-thermometer-quarter" aria-hidden="true"></i>   The temperature is currently <span id ="temp" class = "far"></span>&#176<span id = "tempType" class = "f">F</span></p>
             <input type ="button" class ="btn btn-primary" value ="C/F" id ="tempToggle"/>
 
         </div>
+            <div class ="outer">
+            <div class = "row popular">
+                            <input type ="button" class ="btn btn-primary pop-button" value ="Los Angeles" id ="LosAngeles"/>
+                             <input type ="button" class ="btn btn-primary pop-button" value ="New York" id ="NewYork"/>
+                             <input type ="button" class ="btn btn-primary pop-button" value ="Chicago" id ="Chicago"/>
+                             <input type ="button" class ="btn btn-primary pop-button" value ="Home" id ="home"/>
+            </div>
+            </div>
         </div>
         
             
